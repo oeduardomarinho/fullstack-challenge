@@ -27,3 +27,6 @@ app.use(express.json());
 app.use(morgan('combined', { stream: logStream }));
 
 app.use(`/api/${api_version}`, routes());
+app.use(appErrorHandler);
+app.use(genericErrorHandler);
+app.use(notFound);
