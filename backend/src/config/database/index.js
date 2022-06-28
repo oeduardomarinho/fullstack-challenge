@@ -23,3 +23,17 @@ if (process.env.NODE_ENV === 'test') {
   PORT = process.env.PORT_DATABASE_TEST;
   DIALECT = process.env.DIALECT_DATABASE_TEST;
 }
+/**
+ * @type {Sequelize} sequelize - sequelize instance
+ */
+const sequelize = new Sequelize(DATABASE, USERNAME, PASSWORD, {
+  host: HOST,
+  port: PORT,
+  dialect: DIALECT,
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
+  }
+});
