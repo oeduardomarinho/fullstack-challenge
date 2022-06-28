@@ -96,7 +96,7 @@ Vamos criar então uma aplicação que nos permita consultar, criar e editar ess
 Estes requisitos são opcionais no desafio, sinta-se a vontade para deixá-los de lado, a menos que seja solicitado que os cumpra!   
 
 - Criar mecanismo completo de autenticação e autorização (authentication/authorization/etc.) , como OAuth.
-- Criar mecanismo de log e auditoria (quando/como/quem etc.).
+- ~~Criar mecanismo de log e auditoria (quando/como/quem etc.).
 - Configuração Docker para build da imagem do projeto, docker compose para subir banco de dados com carga inicial necessaria (migrations, seeders).
 
 # Com o que nos preocupamos :dart:
