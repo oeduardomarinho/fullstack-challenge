@@ -14,3 +14,7 @@ import {
 import logger, { logStream } from './config/logger';
 
 import morgan from 'morgan';
+
+const host = process.env.APP_HOST;
+const port = process.env.APP_PORT;
+const api_version = process.env.API_VERSION;
