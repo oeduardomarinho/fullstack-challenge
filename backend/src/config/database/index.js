@@ -37,3 +37,35 @@ const sequelize = new Sequelize(DATABASE, USERNAME, PASSWORD, {
     idle: 10000
   }
 });
+
+sequelize
+  .authenticate()
+  .then(async () => {
+    logger.info('Connected to the database.');
+
+    const migrations = new Umzug({
+      migrations: {
+        glob: ['*.js', { cwd: sequelizeOptions['migrations-path'] }]
+      },
+      context: sequelize.getQueryInterface(),
+      storage: new SequelizeStorage({ sequelize }),
+      logger
+    });
+
+    const seeders = new Umzug({
+      migrations: {
+        glob: ['*.js', { cwd: sequelizeOptions['seeders-path'] }]
+      },
+      context: sequelize.getQueryInterface(),
+      storage: new SequelizeStorage({ sequelize }),
+      logger
+    });
+
+    await migrations.up();
+    if (process.env.NODE_ENV !== 'production') await seeders.up();
+  })
+  .catch((error) => {
+    logger.error('Could not connect to the database.', error);
+  });
+
+export default sequelize;
