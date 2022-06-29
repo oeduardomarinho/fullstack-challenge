@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/eduardommmarinho/fullstack-challenge/branch/master/graph/badge.svg?token=W29521EOPO)](https://codecov.io/gh/eduardommmarinho/fullstack-challenge)
+
 ![Logo](https://i.postimg.cc/qRXTZZ0z/logo-3.png)
 
 [![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/maxxidata/stack#stack)
