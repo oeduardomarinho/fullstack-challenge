@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/eduardommmarinho/fullstack-challenge/branch/master/graph/badge.svg?token=W29521EOPO)](https://codecov.io/gh/eduardommmarinho/fullstack-challenge)
+(https://codecov.io/gh/eduardommmarinho/fullstack-challenge)
 
 ![Logo](https://i.postimg.cc/qRXTZZ0z/logo-3.png)
 
