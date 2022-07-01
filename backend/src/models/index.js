@@ -11,7 +11,17 @@ const models = {
 // Run `.associate` if it exists,
 // ie create relationships in the ORM
 Object.values(models)
-  .filter((model) => typeof model.associate === 'function')
-  .forEach((model) => model.associate(models));
+  .filter(
+    /**
+     * @param {{associate:function(any)}} model
+     */
+    (model) => typeof model.associate === 'function'
+  )
+  .forEach(
+    /**
+     * @param {{associate:function(any)}} model
+     */
+    (model) => model.associate(models)
+  );
 
 module.exports = models;

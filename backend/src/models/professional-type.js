@@ -1,5 +1,9 @@
 'use strict';
 import { Model } from 'sequelize';
+
+/**
+ * @type {function(Sequelize, DataTypes):ProfessionalType}
+ */
 export default (sequelize, DataTypes) => {
   class ProfessionalType extends Model {
     /**
@@ -10,7 +14,9 @@ export default (sequelize, DataTypes) => {
     static associate(models) {
       models.ProfessionalType.hasMany(models.Professional, {
         as: 'professionals',
-        foreignKey: 'professionalTypeId'
+        foreignKey: 'professionalTypeId',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
       });
     }
   }
