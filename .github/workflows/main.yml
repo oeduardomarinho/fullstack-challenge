@@ -19,6 +19,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    environment: test
     env:
       APP_HOST: ${{ secrets.APP_HOST }}
       APP_PORT: ${{ secrets.APP_PORT }}
