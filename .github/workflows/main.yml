@@ -33,6 +33,13 @@ jobs:
       PORT_DATABASE: ${{ secrets.PORT_DATABASE }}
       DIALECT_DATABASE: ${{ secrets.DIALECT_DATABASE }}
 
+      DATABASE_TEST: ${{ secrets.DATABASE_TEST }}
+      USERNAME_DATABASE_TEST: ${{ secrets.USERNAME_DATABASE_TEST }}
+      PASSWORD_DATABASE_TEST: ${{ secrets.PASSWORD_DATABASE_TEST }}
+      HOST_DATABASE_TEST: ${{ secrets.HOST_DATABASE_TEST }}
+      PORT_DATABASE_TEST: ${{ secrets.PORT_DATABASE_TEST }}
+      DIALECT_DATABASE_TEST: ${{ secrets.DIALECT_DATABASE_TEST }}
+
     services:
       postgres:
         image: postgres:12-alpine
@@ -42,7 +49,7 @@ jobs:
           POSTGRES_PASSWORD: ${{ secrets.PASSWORD_DATABASE_TEST }}
           PORT_DATABASE_TEST: ${{ secrets.PORT_DATABASE_TEST }}
         ports:
-          - 5432:5432
+          - ${{ secrets.PORT_DATABASE_TEST }}:${{ secrets.PORT_DATABASE_TEST }}
 
     defaults:
       run:
@@ -56,28 +63,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       
-      - name: Setup Node.js environment
-        
+      - name: Setup Node.js environment     
         uses: actions/setup-node@v3.3.0
         with:
           node-version: ${{ matrix.node-version }}
-
-      
+  
       - run: npm install
       
       - run: npm run test:coverage
-        env:
-          APP_HOST: ${{ secrets.APP_HOST }}
-          APP_PORT: ${{ secrets.APP_PORT }}
-
-          API_VERSION: ${{ secrets.API_VERSION }}
-          
-          DATABASE_TEST: ${{ secrets.DATABASE_TEST }}
-          USERNAME_DATABASE_TEST: ${{ secrets.USERNAME_DATABASE_TEST }}
-          PASSWORD_DATABASE_TEST: ${{ secrets.PASSWORD_DATABASE_TEST }}
-          HOST_DATABASE_TEST: ${{ secrets.HOST_DATABASE_TEST }}
-          PORT_DATABASE_TEST: ${{ secrets.PORT_DATABASE_TEST }}
-          DIALECT_DATABASE_TEST: ${{ secrets.DIALECT_DATABASE_TEST }}
 
       - uses: codecov/codecov-action@v3.1.0
         if: ${{ always() }}
