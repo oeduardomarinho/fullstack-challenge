@@ -1,11 +1,10 @@
 import HttpStatus from 'http-status-codes';
+// eslint-disable-next-line max-len
 import * as ProfessionalTypeService from '../services/professional-type.service';
 
 /**
+ * @type {function(Request, Response, NextFunction):Response}
  * Controller to get all professionalTypes available
- * @param  {object} req - request object
- * @param {object} res - response object
- * @param {Function} next
  */
 export const getAllProfessionalTypes = async (req, res, next) => {
   try {
@@ -21,10 +20,8 @@ export const getAllProfessionalTypes = async (req, res, next) => {
 };
 
 /**
+ * @type {function(Request, Response, NextFunction):Response}
  * Controller to get a single professionalType
- * @param  {object} req - request object
- * @param {object} res - response object
- * @param {Function} next
  */
 export const getProfessionalType = async (req, res, next) => {
   try {
@@ -43,10 +40,8 @@ export const getProfessionalType = async (req, res, next) => {
 };
 
 /**
+ * @type {function(Request, Response, NextFunction):Response}
  * Controller to create a new professionalType
- * @param  {object} req - request object
- * @param {object} res - response object
- * @param {Function} next
  */
 export const newProfessionalType = async (req, res, next) => {
   try {
@@ -63,10 +58,8 @@ export const newProfessionalType = async (req, res, next) => {
 };
 
 /**
+ * @type {function(Request, Response, NextFunction):Response}
  * Controller to update a professionalType
- * @param  {object} req - request object
- * @param {object} res - response object
- * @param {Function} next
  */
 export const updateProfessionalType = async (req, res, next) => {
   try {
@@ -86,10 +79,8 @@ export const updateProfessionalType = async (req, res, next) => {
 };
 
 /**
+ * @type {function(Request, Response, NextFunction):Response}
  * Controller to delete a single professionalType
- * @param  {object} req - request object
- * @param {object} res - response object
- * @param {Function} next
  */
 export const deleteProfessionalType = async (req, res, next) => {
   try {

@@ -2,7 +2,11 @@ import express from 'express';
 // eslint-disable-next-line max-len
 import * as professionalController from '../controllers/professional.controller';
 // eslint-disable-next-line max-len
-import { newProfessionalValidator } from '../validators/professional.validator';
+import {
+  newProfessionalValidator,
+  changeProfessionalValidator,
+  professionalIdValidator
+} from '../validators/professional.validator';
 // import { userAuth } from '../middlewares/auth.middleware';
 // const professionalAuth = userAuth;
 
@@ -21,14 +25,24 @@ router.post(
 //route to get a single professional by their professional id
 router.get(
   '/:id',
+  professionalIdValidator,
   // professionalAuth,
   professionalController.getProfessional
 );
 
 //route to update a single professional by their professional id
-router.put('/:id', professionalController.updateProfessional);
+router.put(
+  '/:id',
+  professionalIdValidator,
+  changeProfessionalValidator,
+  professionalController.updateProfessional
+);
 
 //route to delete a single professional by their professional id
-router.delete('/:id', professionalController.deleteProfessional);
+router.delete(
+  '/:id',
+  professionalIdValidator,
+  professionalController.deleteProfessional
+);
 
 export default router;

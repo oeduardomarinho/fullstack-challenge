@@ -38,34 +38,70 @@ const sequelize = new Sequelize(DATABASE, USERNAME, PASSWORD, {
   }
 });
 
-sequelize
-  .authenticate()
-  .then(async () => {
-    logger.info('Connected to the database.');
+const migrations = new Umzug({
+  migrations: {
+    glob: ['*.js', { cwd: sequelizeOptions['migrations-path'] }]
+  },
+  context: sequelize.getQueryInterface(),
+  storage: new SequelizeStorage({ sequelize }),
+  logger
+});
 
-    const migrations = new Umzug({
-      migrations: {
-        glob: ['*.js', { cwd: sequelizeOptions['migrations-path'] }]
-      },
-      context: sequelize.getQueryInterface(),
-      storage: new SequelizeStorage({ sequelize }),
-      logger
-    });
+const seeders = new Umzug({
+  migrations: {
+    glob: ['*.js', { cwd: sequelizeOptions['seeders-path'] }]
+  },
+  context: sequelize.getQueryInterface(),
+  storage: new SequelizeStorage({ sequelize }),
+  logger
+});
 
-    const seeders = new Umzug({
-      migrations: {
-        glob: ['*.js', { cwd: sequelizeOptions['seeders-path'] }]
-      },
-      context: sequelize.getQueryInterface(),
-      storage: new SequelizeStorage({ sequelize }),
-      logger
-    });
+(() =>
+  sequelize
+    .sync({ force: process.env.NODE_ENV !== 'production' })
+    .then(() => migrations.up())
+    .then(() => process.env.NODE_ENV !== 'production' && seeders.up())
+    .catch((error) => {
+      logger.error('Could not connect to the database.', error);
+    }))();
 
-    await migrations.up();
-    if (process.env.NODE_ENV !== 'production') await seeders.up();
-  })
-  .catch((error) => {
-    logger.error('Could not connect to the database.', error);
-  });
+export const cleanUp = () => {
+  if (process.env.NODE_ENV !== 'production') {
+    return sequelize
+      .sync({ force: true })
+      .then(() => seeders.down())
+      .then(() => migrations.down())
+      .then(() => migrations.up())
+      .catch((error) => {
+        logger.error('Could not connect to the database.', error);
+      });
+  }
+};
+
+export const reSeed = () => {
+  if (process.env.NODE_ENV !== 'production') {
+    return sequelize
+      .sync({ force: true })
+      .then(() => seeders.down())
+      .then(() => seeders.up())
+      .catch((error) => {
+        logger.error('Could not connect to the database.', error);
+      });
+  }
+};
+
+export const migrate = () => {
+  if (process.env.NODE_ENV !== 'production') {
+    return sequelize
+      .sync({ force: true })
+      .then(() => seeders.down())
+      .then(() => migrations.down())
+      .then(() => migrations.up())
+      .then(() => seeders.up())
+      .catch((error) => {
+        logger.error('Could not connect to the database.', error);
+      });
+  }
+};
 
 export default sequelize;

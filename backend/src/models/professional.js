@@ -1,8 +1,8 @@
 'use strict';
 import { Model } from 'sequelize';
+
 /**
- * @param {Sequelize} sequelize - Sequelize instance
- * @param {DataTypes} DataTypes - DataTypes interface
+ * @type {function(Sequelize, DataTypes):Professional}
  */
 export default (sequelize, DataTypes) => {
   class Professional extends Model {
