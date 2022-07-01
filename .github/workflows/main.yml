@@ -43,11 +43,11 @@ jobs:
       postgres:
         image: postgres:12-alpine
         env:
-          POSTGRES_DB: "${{env.DATABASE_TEST}}"
-          POSTGRES_USER: "${{env.USERNAME_DATABASE_TEST}}"
-          POSTGRES_PASSWORD: "${{env.PASSWORD_DATABASE_TEST}}"
+          POSTGRES_DB: "${{ secrets.DATABASE_TEST }}"
+          POSTGRES_USER: "${{ secrets.USERNAME_DATABASE_TEST }}"
+          POSTGRES_PASSWORD: "${{ secrets.PASSWORD_DATABASE_TEST }}"
         ports:
-          - "${{env.PORT_DATABASE_TEST}}":"${{env.PORT_DATABASE_TEST}}"
+          - "${{ secrets.PORT_DATABASE_TEST }}":"${{ secrets.PORT_DATABASE_TEST }}"
 
     defaults:
       run:
