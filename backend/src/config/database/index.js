@@ -23,7 +23,6 @@ if (process.env.NODE_ENV === 'test') {
   PORT = process.env.PORT_DATABASE_TEST;
   DIALECT = process.env.DIALECT_DATABASE_TEST;
 }
-console.log(process.env);
 /**
  * @type {Sequelize} sequelize - sequelize instance
  */
