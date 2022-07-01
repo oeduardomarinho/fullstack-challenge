@@ -19,6 +19,36 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    env:
+      APP_HOST: ${{ secrets.APP_HOST }}
+      APP_PORT: ${{ secrets.APP_PORT }}
+
+      API_VERSION: ${{ secrets.API_VERSION }}
+
+      DATABASE: ${{ secrets.DATABASE }}
+      USERNAME_DATABASE: ${{ secrets.USERNAME_DATABASE }}
+      PASSWORD_DATABASE: ${{ secrets.PASSWORD_DATABASE }}
+      HOST_DATABASE: ${{ secrets.HOST_DATABASE }}
+      PORT_DATABASE: ${{ secrets.PORT_DATABASE }}
+      DIALECT_DATABASE: ${{ secrets.DIALECT_DATABASE }}
+
+      DATABASE_TEST: ${{ secrets.DATABASE_TEST }}
+      USERNAME_DATABASE_TEST: ${{ secrets.USERNAME_DATABASE_TEST }}
+      PASSWORD_DATABASE_TEST: ${{ secrets.PASSWORD_DATABASE_TEST }}
+      HOST_DATABASE_TEST: ${{ secrets.HOST_DATABASE_TEST }}
+      PORT_DATABASE_TEST: ${{ secrets.PORT_DATABASE_TEST }}
+      DIALECT_DATABASE_TEST: ${{ secrets.DIALECT_DATABASE_TEST }}
+
+    services:
+      postgres:
+        image: postgres:12-alpine
+        env:
+          POSTGRES_DB: ${{ secrets.DATABASE_TEST }}
+          POSTGRES_USER: ${{ secrets.USERNAME_DATABASE_TEST }}
+          POSTGRES_PASSWORD: ${{ secrets.PASSWORD_DATABASE_TEST }}
+        ports:
+          - ${{ secrets.PORT_DATABASE_TEST }}:${{ secrets.PORT_DATABASE_TEST }}
+
     defaults:
       run:
         working-directory: backend
@@ -40,15 +70,6 @@ jobs:
       - run: npm install
       
       - run: npm run test:coverage
+
       - uses: codecov/codecov-action@v3.1.0
         if: ${{ always() }}
-
-      # Runs a single command using the runners shell
-      #- name: Run a one-line script
-      #  run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      #- name: Run a multi-line script
-      #  run: |
-      #    echo Add other actions to build,
-      #    echo test, and deploy your project.
