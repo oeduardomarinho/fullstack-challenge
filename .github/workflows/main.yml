@@ -49,8 +49,8 @@ jobs:
           POSTGRES_PASSWORD: ${{ secrets.PASSWORD_DATABASE_TEST }}
           PORT_DATABASE_TEST: ${{ secrets.PORT_DATABASE_TEST }}
         ports:
-          - target: ${{ secrets.PORT_DATABASE_TEST }}
-            published: ${{ secrets.PORT_DATABASE_TEST }}
+          - port: 5432
+            targetPort: 5432
 
     defaults:
       run:
