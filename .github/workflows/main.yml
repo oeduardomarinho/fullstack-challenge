@@ -66,17 +66,17 @@ jobs:
       
       - run: npm run test:coverage
         env:
-        APP_HOST: ${{ secrets.APP_HOST }}
-        APP_PORT: ${{ secrets.APP_PORT }}
+          APP_HOST: ${{ secrets.APP_HOST }}
+          APP_PORT: ${{ secrets.APP_PORT }}
 
-        API_VERSION: ${{ secrets.API_VERSION }}
-        
-        DATABASE_TEST: ${{ secrets.DATABASE_TEST }}
-        USERNAME_DATABASE_TEST: ${{ secrets.USERNAME_DATABASE_TEST }}
-        PASSWORD_DATABASE_TEST: ${{ secrets.PASSWORD_DATABASE_TEST }}
-        HOST_DATABASE_TEST: ${{ secrets.HOST_DATABASE_TEST }}
-        PORT_DATABASE_TEST: ${{ secrets.PORT_DATABASE_TEST }}
-        DIALECT_DATABASE_TEST: ${{ secrets.DIALECT_DATABASE_TEST }}
+          API_VERSION: ${{ secrets.API_VERSION }}
+          
+          DATABASE_TEST: ${{ secrets.DATABASE_TEST }}
+          USERNAME_DATABASE_TEST: ${{ secrets.USERNAME_DATABASE_TEST }}
+          PASSWORD_DATABASE_TEST: ${{ secrets.PASSWORD_DATABASE_TEST }}
+          HOST_DATABASE_TEST: ${{ secrets.HOST_DATABASE_TEST }}
+          PORT_DATABASE_TEST: ${{ secrets.PORT_DATABASE_TEST }}
+          DIALECT_DATABASE_TEST: ${{ secrets.DIALECT_DATABASE_TEST }}
 
       - uses: codecov/codecov-action@v3.1.0
         if: ${{ always() }}
