@@ -39,6 +39,8 @@ async function up({ context: queryInterface }) {
       type: Sequelize.DataTypes.INTEGER,
       allowNull: false,
       field: 'professional_type_id',
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE',
       references: {
         model: {
           tableName: 'professional_types',
