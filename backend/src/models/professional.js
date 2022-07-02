@@ -14,7 +14,9 @@ export default (sequelize, DataTypes) => {
     static associate(models) {
       models.Professional.belongsTo(models.ProfessionalType, {
         as: 'type',
-        foreignKey: 'professionalTypeId'
+        foreignKey: 'professionalTypeId',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
       });
     }
   }
