@@ -43,6 +43,7 @@ jobs:
     services:
       postgres:
         image: postgres:12-alpine
+        environment: test
         env:
           POSTGRES_DB: ${{ secrets.DATABASE_TEST }}
           POSTGRES_USER: ${{ secrets.USERNAME_DATABASE_TEST }}
