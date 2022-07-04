@@ -61,25 +61,21 @@ export const newProfessional = async (req, res, next) => {
  * @type {function(Request, Response, NextFunction):Response}
  * Controller to update a professional
  */
-export const updateProfessional = async (err, req, res, next) => {
-  if (!err) {
-    try {
-      const data = await ProfessionalService.updateProfessional(
-        req.params.id,
-        req.body
-      );
-      res.status(HttpStatus.ACCEPTED).json({
-        code: HttpStatus.ACCEPTED,
-        data: data,
-        message: 'Professional updated successfully'
-      });
-    } catch (error) {
-      if (/not found/.test(error.message)) error.code = HttpStatus.NOT_FOUND;
-
-      next(error);
-    }
+export const updateProfessional = async (req, res, next) => {
+  try {
+    const data = await ProfessionalService.updateProfessional(
+      req.params.id,
+      req.body
+    );
+    res.status(HttpStatus.ACCEPTED).json({
+      code: HttpStatus.ACCEPTED,
+      data: data,
+      message: 'Professional updated successfully'
+    });
+  } catch (error) {
+    if (/not found/.test(error.message)) error.code = HttpStatus.NOT_FOUND;
+    next(error);
   }
-  next(err);
 };
 
 /**
