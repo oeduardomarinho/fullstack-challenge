@@ -33,23 +33,27 @@ async function up({ context: queryInterface }) {
   await queryInterface.bulkInsert(
     'professionals',
     [
-      'Felipe Monte Do Nascimento',
-      'Bruna Rodrigues Dos Santos Fontes',
-      'Arthur Mota Creston De Vasconcellos',
-      'Alair Rodrigues Da Silva',
+      'Felipe Monte do Nascimento',
+      'Bruna Rodrigues dos Santos Fontes',
+      'Arthur Mota Creston de Vasconcellos',
+      'Alair Rodrigues da Silva',
       'Rafael Ramon Ferreira',
       'Thais Rodrigues Barbosa',
-      'Andre Da Conceicao',
-      'Eric De Oliveira Alves',
+      'Andre da Conceicao',
+      'Eric de Oliveira Alves',
       'Marciela Lima Monteiro',
       'Any Carolina Quintana Xavier',
-      'Robert Costa Do Nascimento',
-      'Jorge Luis Ferreira Dos Santos',
-      'Diego Da Paixao Santos',
-      'Igor Do Amaral',
-      'Blaunielle De Assis Vieira'
+      'Robert Costa do Nascimento',
+      'Jorge Luis Ferreira dos Santos',
+      'Diego da Paixao Santos',
+      'Igor do Amaral',
+      'Blaunielle de Assis Vieira'
     ].map((name) => ({
       name,
+      mail_address: `${(([firstName, ...lastName]) =>
+        `${firstName}.${lastName.pop()}@mail.com`)(
+        name.toLowerCase().split(' ')
+      )}`,
       professional_type_id: professionalTypeIds.random(),
       created_at,
       updated_at
