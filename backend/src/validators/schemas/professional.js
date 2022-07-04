@@ -6,9 +6,12 @@ export const createSchema = Joi.object({
   name: Joi.string().min(1).required(),
   phoneNumber: JoiPhone.string()
     .phoneNumber({ defaultCountry: 'BR', strict: true })
-    .allow(null),
+    .allow(null, '')
+    .default(null),
   mailAddress: Joi.string()
     .email({ tlds: { allow: false } })
+    .allow(null, '')
+    .default(null),
   professionalTypeId: Joi.number().positive().integer().not(null).required(),
   situation: Joi.boolean()
 });
@@ -17,10 +20,10 @@ export const updateSchema = Joi.object({
   name: Joi.string().min(1),
   phoneNumber: JoiPhone.string()
     .phoneNumber({ defaultCountry: 'BR', strict: true })
-    .allow(null),
+    .allow(null, ''),
   mailAddress: Joi.string()
     .email({ tlds: { allow: false } })
-    .allow(null),
+    .allow(null, ''),
   professionalTypeId: Joi.number().positive().integer().not(null),
   situation: Joi.boolean()
 });
