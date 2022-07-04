@@ -7,8 +7,6 @@ import {
   changeProfessionalTypeValidator,
   professionalTypeIdValidator
 } from '../validators/professional-type.validator';
-// import { userAuth } from '../middlewares/auth.middleware';
-// const professionalTypeAuth = userAuth;
 
 const router = express.Router();
 
@@ -26,7 +24,6 @@ router.post(
 router.get(
   '/:id',
   professionalTypeIdValidator,
-  // professionalTypeAuth,
   professionalTypeController.getProfessionalType
 );
 
