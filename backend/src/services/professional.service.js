@@ -17,7 +17,10 @@ export const getAllProfessionals = async () => {
    */
   const professionals = await Professional.findAll({
     include: [{ all: true }],
-    order: [['id', 'ASC']]
+    order: [
+      ['updatedAt', 'DESC'],
+      ['name', 'ASC']
+    ]
   });
   return professionals;
 };
@@ -53,7 +56,12 @@ export const newProfessional = async (data = {}) => {
   /**
    * @type {Promise<Professional>}
    */
-  const { dataValues: professional } = await Professional.create(data);
+  const { id } = await Professional.create(data);
+
+  const professional = await Professional.findByPk(id, {
+    include: [{ all: true }]
+  });
+
   return professional;
 };
 
@@ -97,10 +105,10 @@ export const updateProfessional = async (id = 0, data = {}) => {
       throw new Error('professionalType not found');
   }
 
-  data = { ...professional.dataValues, ...data };
+  data = { ...professional.dataValues, ...data, id };
 
   await Professional.update(
-    { ...data, id },
+    { ...data },
     {
       where: { id: id }
     }

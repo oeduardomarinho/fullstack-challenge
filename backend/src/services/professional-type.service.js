@@ -13,7 +13,10 @@ export const getAllProfessionalTypes = async () => {
    * @type {Promise<ProfessionalType[]>}
    */
   const professionalTypes = await ProfessionalType.findAll({
-    order: [['id', 'ASC']]
+    order: [
+      ['updatedAt', 'DESC'],
+      ['description', 'ASC']
+    ]
   });
   return professionalTypes;
 };
@@ -68,10 +71,10 @@ export const updateProfessionalType = async (id = 0, data = {}) => {
   const professionalType = await ProfessionalType.findByPk(id);
   if (professionalType === null) throw new Error('professionalType not found');
 
-  data = { ...professionalType.dataValues, ...data };
+  data = { ...professionalType.dataValues, ...data, id };
 
   await ProfessionalType.update(
-    { ...data, id },
+    { ...data },
     {
       where: { id: id }
     }
