@@ -32,7 +32,7 @@ export default (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: true,
         validate: {
-          isNumeric: true
+          is: /^[0-9]+$|^$/
         }
       },
       mailAddress: {
