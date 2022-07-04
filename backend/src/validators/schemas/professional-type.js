@@ -1,7 +1,8 @@
 import Joi from '@hapi/joi';
 
 export const createSchema = Joi.object({
-  description: Joi.string().min(1).required().not(null)
+  description: Joi.string().min(1).required().not(null),
+  situation: Joi.boolean()
 });
 
 export const updateSchema = Joi.object({

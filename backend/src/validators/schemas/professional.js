@@ -9,8 +9,8 @@ export const createSchema = Joi.object({
     .allow(null),
   mailAddress: Joi.string()
     .email({ tlds: { allow: false } })
-    .allow(null),
-  professionalTypeId: Joi.number().positive().integer().not(null).required()
+  professionalTypeId: Joi.number().positive().integer().not(null).required(),
+  situation: Joi.boolean()
 });
 
 export const updateSchema = Joi.object({
