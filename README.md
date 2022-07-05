@@ -64,31 +64,31 @@ Vamos criar então uma aplicação que nos permita consultar, criar e editar ess
 ### Backend :earth_americas:
 - ~~A API deve seguir as boas práticas e padrões de implementação REST~~
 - ~~Os dados deve ser salvos em um banco de dados~~
-- Escrever os testes para o código e as APIs geradas
-- Prover documentação para API. (Sugestão OpenAPI/Swagger)
+- ~~Escrever os testes para o código e as APIs geradas~~
+- ~~Prover documentação para API. (Sugestão OpenAPI/Swagger)~~
 - ~~Use **Node.js** e qualquer outro framework~~
 - ~~Use **Javascript ECMA**~~
 - ~~Use qualquer DB. PostgreSQL DB é a sugestão, sinta-se livre para usar qualquer outro.~~
 
 ### Frontend :computer:
 ** Se optar por realizar somente desafio frontend, utilize o modelo de dados proposto com algum mecanismo para gerar o Mock dos dados.
-- Criar uma tela home com menu de acesso as funcionalidades
-- Uma tela de listagem para cada uma das entidades
-- Uma tela de cadastro para cada uma das entidades
-- Implementar solução usando **ReactJS** ultima versão disponível
-- Fique a vontade para utilizar bibliotecas de componentes de mercado ou criar os seus
-- Utilize **Javascript ECMA**
+- ~~Criar uma tela home com menu de acesso as funcionalidades~~
+- ~~Uma tela de listagem para cada uma das entidades~~
+- ~~Uma tela de cadastro para cada uma das entidades~~
+- ~~Implementar solução usando **ReactJS** ultima versão disponível~~
+- ~~Fique a vontade para utilizar bibliotecas de componentes de mercado ou criar os seus~~
+- ~~Utilize **Javascript ECMA**~~
 
 ### Mobile :iphone:
 - Também desenvolvemos soluções mobile e procuramos profissionais com essas habilidades e conhecimentos. 
 - Caso queira ou seja solicitado a você desenvolva a aplicação mobile com os mesmos requisitos do Frontend, usando tecnologia **ReactNative**.
 
 ## Diferencial :crossed_swords:
-- Documentação clara do código. Código comentado sempre é bom!
-- Boas mensagens de commit ajudam!
+- ~~Documentação clara do código. Código comentado sempre é bom!~~
+- ~~Boas mensagens de commit ajudam!~~
 
 ## Requisitos não funcionais :cool:
-- Um arquivo README.md com o resumo de escolhas por frameworks, bibliotecas, banco de dados e como executar seu projeto.
+- ~~Um arquivo README.md com o resumo de escolhas por frameworks, bibliotecas, banco de dados e como executar seu projeto.~~
 
 
 ## Opcional - Requisitos avançados 	:grey_exclamation:
