@@ -17,3 +17,7 @@ npm run start
 
 <br><br>
 _Ps.: some elements possibly will not present any meanful information without a link to the server, although this requirement will not crash the aplication._
+
+# Documentation
+
+Produced docs can be found in /docs route or in this [link](https://documenter.getpostman.com/view/17016737/UzJFxJup).
