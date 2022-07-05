@@ -88,7 +88,7 @@ Vamos criar então uma aplicação que nos permita consultar, criar e editar ess
 - ~~Boas mensagens de commit ajudam!~~
 
 ## Requisitos não funcionais :cool:
-- Um arquivo README.md com o resumo de escolhas por frameworks, bibliotecas, banco de dados e como executar seu projeto.
+- ~~Um arquivo README.md com o resumo de escolhas por frameworks, bibliotecas, banco de dados e como executar seu projeto.~~
 
 
 ## Opcional - Requisitos avançados 	:grey_exclamation:
