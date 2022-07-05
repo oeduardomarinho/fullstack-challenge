@@ -24,3 +24,24 @@ This is a NodeJs + Express + Sequelize API.
 
 - a Postgres instance: can be manually installed or be provided via docker.
 - an .env file pointing to that database instance with at least one database created and also pointed in this file. an .env.example is provided in this repo.
+
+# Init
+
+```
+npm install
+```
+
+then
+
+for a clear start (only schema migrations will run)
+```
+npm run start
+```
+
+for a seeded start (schema + seeds)
+```
+npm run dev
+```
+
+
+
