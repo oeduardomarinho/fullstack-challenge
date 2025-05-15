@@ -116,3 +116,5 @@ Estes requisitos são opcionais no desafio, sinta-se a vontade para deixá-los d
 - Entre em contato com nosso time que esta te apoiando no processo seletivo ou pelo rh@maxxidata.com.
 
 [Voltar ao topo](#desafio-fullstack-earth_americas-computer-iphone)
+
+This project is tested with BrowserStack
